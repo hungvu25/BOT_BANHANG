@@ -1,4 +1,4 @@
-FROM node:20-alpine AS deps
+FROM node:20-bookworm-slim AS deps
 WORKDIR /app
 COPY package*.json ./
 COPY apps/admin/package*.json apps/admin/
@@ -6,14 +6,14 @@ COPY apps/server/package*.json apps/server/
 COPY packages/shared/package*.json packages/shared/
 RUN npm install
 
-FROM node:20-alpine AS build
+FROM node:20-bookworm-slim AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ARG VITE_SERVER_URL=http://localhost:3000/api
 ENV VITE_SERVER_URL=$VITE_SERVER_URL
 WORKDIR /app/apps/admin
-RUN npm run build
+RUN npx tsc -b && npx vite build
 WORKDIR /app
 
 FROM nginx:1.27-alpine
