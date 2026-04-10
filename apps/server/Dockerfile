@@ -10,7 +10,11 @@ FROM node:20-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build -w @bot/server
+# tsc path is relative to apps/server; npm -w can leave cwd at /app in some environments (TS5058).
+WORKDIR /app/apps/server
+RUN npx prisma generate
+RUN npm run build
+WORKDIR /app
 
 FROM node:20-alpine AS runtime
 WORKDIR /app

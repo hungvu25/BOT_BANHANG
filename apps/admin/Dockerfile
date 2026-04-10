@@ -12,7 +12,9 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ARG VITE_SERVER_URL=http://localhost:3000/api
 ENV VITE_SERVER_URL=$VITE_SERVER_URL
-RUN npm run build -w @bot/admin
+WORKDIR /app/apps/admin
+RUN npm run build
+WORKDIR /app
 
 FROM nginx:1.27-alpine
 COPY --from=build /app/apps/admin/dist /usr/share/nginx/html
