@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ProductMapping {
+  id             String   @id @default(cuid())
+  aProductId     String
+  aVariantId     String
+  bProductId     Int
+  outputTemplate String   @default("{{account}}")
+  enabled        Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([aProductId, aVariantId])
+}
+
+model OrderEvent {
+  id          String   @id @default(cuid())
+  aOrderId    String   @unique
+  status      String
+  retries     Int      @default(0)
+  lastError   String?
+  payload     String?
+  lockedAt    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PurchaseLog {
+  id          String   @id @default(cuid())
+  aOrderId    String
+  requestBody String
+  responseRaw String
+  success     Boolean
+  createdAt   DateTime @default(now())
+}
+
+model DeliveryLog {
+  id          String   @id @default(cuid())
+  aOrderId    String
+  requestBody String
+  responseRaw String
+  success     Boolean
+  createdAt   DateTime @default(now())
+}
+
+model SystemSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}

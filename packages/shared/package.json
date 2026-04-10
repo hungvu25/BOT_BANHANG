@@ -1,0 +1,14 @@
+{
+  "name": "@bot/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo shared build skipped",
+    "lint": "echo shared lint skipped"
+  },
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "bot-banhang",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Auto inventory bot A -> B -> A",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:server": "npm run start:dev -w @bot/server",
+    "dev:admin": "npm run dev -w @bot/admin",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "test": "npm run test -w @bot/server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

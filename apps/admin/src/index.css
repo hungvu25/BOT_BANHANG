@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: #0c1220;
+  color: #e5e7eb;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.page {
+  display: grid;
+  gap: 18px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel {
+  background: linear-gradient(180deg, #121a2b 0%, #0f172a 100%);
+  border: 1px solid #27364f;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(2, 8, 23, 0.35);
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 26px;
+}
+
+.stats .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.mappingForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  border-radius: 8px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  border-radius: 8px;
+}
+
+button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #243146;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border-bottom: 1px solid #243146;
+  text-align: left;
+  padding: 10px;
+  vertical-align: top;
+}
+
+th {
+  color: #cbd5e1;
+  background: #0b1220;
+}
+
+tbody tr:hover {
+  background: #111f36;
+}
+
+.notice {
+  margin: -6px 0 0;
+  color: #93c5fd;
+  font-size: 14px;
+}
+
+.tableActions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.balanceCard {
+  background: #0b1220;
+  border: 1px solid #28405f;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.balanceTitle {
+  color: #93c5fd;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.balanceRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.balanceRow strong {
+  color: #f8fafc;
+}
+
+.jsonBox {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #0b1220;
+  border: 1px solid #28405f;
+  color: #cbd5e1;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 13px;
+}
