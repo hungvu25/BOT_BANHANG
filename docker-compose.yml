@@ -6,8 +6,8 @@ services:
       dockerfile: apps/server/Dockerfile
     ports:
       - "3000:3000"
-    env_file:
-      - .env
+    # Biến môi trường: thêm trong Portainer (Stack → Environment) hoặc tạo file .env cùng thư mục compose rồi bật lại:
+    # env_file: [".env"]
     volumes:
       - ./apps/server/prisma:/app/apps/server/prisma
 
